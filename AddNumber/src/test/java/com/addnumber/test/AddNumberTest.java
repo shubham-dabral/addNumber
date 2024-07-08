@@ -33,4 +33,11 @@ public class AddNumberTest {
 		assertEquals(6, output);
 		
 	}
+	@Test
+	public void testWithTab() {
+		int output=add.addNumber("1,2\t,3");
+		assertEquals(6, output);
+		
+	}
 }
+

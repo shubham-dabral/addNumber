@@ -2,7 +2,7 @@ package com.addnumber;
 public class AddNumber {
 	
 	
-	public static int addNumber(String number) {
+	public int addNumber(String number) {
 		if(number.length()==0) {
 			return 0;
 		}
@@ -13,7 +13,7 @@ public class AddNumber {
 		int sum=0;
 		
 		for(int index=0;index<numArr.length;index++) {
-			sum=sum+Integer.parseInt(numArr[index]);
+			sum=sum+Integer.parseInt(numArr[index].trim());
 		}
 		return sum;
 	}
