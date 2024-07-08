@@ -1,9 +1,13 @@
 package com.addnumber;
 public class AddNumber {
 	
-	public int addNumber(String number) {
+	
+	public static int addNumber(String number) {
 		if(number.length()==0) {
 			return 0;
+		}
+		else if (number.contains("\n")) {
+			number=number.replace("\n", ",");
 		}
 		String numArr[]=number.split(",");
 		int sum=0;
