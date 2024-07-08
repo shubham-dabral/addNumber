@@ -1,7 +1,7 @@
 package com.addnumber;
 public class AddNumber {
 	
-	public static int addNumber(String number) {
+	public int addNumber(String number) {
 		if(number.length()==0) {
 			return 0;
 		}
