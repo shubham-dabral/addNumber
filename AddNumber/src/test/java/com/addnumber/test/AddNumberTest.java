@@ -49,6 +49,18 @@ public class AddNumberTest {
 		assertEquals(6, output);
 	}
 	
+	@Test
+	public void testNegativeNumber() {
+		
+//		Exception exception =assertThrows(IllegalArgumentException.class, () -> {
+//			add.addNumber("-1,2");
+//	    });
+		Exception exception =assertThrows(IllegalArgumentException.class, () -> {
+			add.addNumber("-1,-2");
+	    });
+		assertEquals("negative numbers not allowed -1,-2,",exception.getMessage());
+	}
+	
 	
 }
 

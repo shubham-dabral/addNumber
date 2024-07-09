@@ -4,15 +4,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class AddNumber {
-
 	
-	public int addNumber(String number) {
+	public int addNumber(String number)  {
 		
 		if(number.length()==0) {
 			return 0;
 		}
 		
-		String regex = "[!\"#$%&'*+,./:;=?@^_`|~-]+";
+		String regex = "[!\"#$%&'*+,./:;=?@^_`|~]+";
 		Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(number);
         
@@ -31,13 +30,29 @@ public class AddNumber {
 		String numArr[]=number.split(",");
 		
 		int sum=0;
+		StringBuffer negativeNumber=new StringBuffer();
+		boolean negativeFlag=false;
 		
 		for(int index=0;index<numArr.length;index++) {
-			if(!numArr[index].trim().equals(""))
-				sum=sum+Integer.parseInt(numArr[index].trim());
+			if(!numArr[index].trim().equals("")) {
+				if(Integer.parseInt(numArr[index].trim()) <0) {
+					negativeFlag=true;
+					negativeNumber.append(numArr[index].trim()+",");
+				}
+				else if(!negativeFlag) {
+					sum=sum+Integer.parseInt(numArr[index].trim());	
+				}
+			}
+				
 		}
 		
-		return sum;
+		if(negativeFlag) {
+			throw new IllegalArgumentException("negative numbers not allowed "+negativeNumber);
+		}
+		else {
+			return sum;
+		}
+		
 	}
 
 }
