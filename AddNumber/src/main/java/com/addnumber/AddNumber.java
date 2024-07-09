@@ -37,7 +37,13 @@ public class AddNumber {
 			if(!numArr[index].trim().equals("")) {
 				if(Integer.parseInt(numArr[index].trim()) <0) {
 					negativeFlag=true;
-					negativeNumber.append(numArr[index].trim()+",");
+					if(negativeNumber.isEmpty()) {
+						negativeNumber.append(numArr[index].trim());
+					}
+					else {
+						negativeNumber.append(","+numArr[index].trim());
+					}
+					
 				}
 				else if(!negativeFlag) {
 					sum=sum+Integer.parseInt(numArr[index].trim());	

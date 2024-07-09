@@ -58,7 +58,7 @@ public class AddNumberTest {
 		Exception exception =assertThrows(IllegalArgumentException.class, () -> {
 			add.addNumber("-1,-2");
 	    });
-		assertEquals("negative numbers not allowed -1,-2,",exception.getMessage());
+		assertEquals("negative numbers not allowed -1,-2",exception.getMessage());
 	}
 	
 	
